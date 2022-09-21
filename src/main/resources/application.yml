@@ -1,3 +1,18 @@
 server:
   port: 9090
 
+
+spring:
+  datasource:
+    name: blog_app
+    url: jdbc:mysql://localhost:3306/blog_app
+    username: root
+    password: 123456789
+  jpa:
+    generate-ddl: true
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+  properties:
+    hibernate:
+      format_sql: true

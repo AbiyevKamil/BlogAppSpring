@@ -9,7 +9,6 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
-@Table(name = "comments")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -27,4 +26,8 @@ public class Comment {
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(nullable = false, name = "blog_id", referencedColumnName = "id")
     private Blog blog;
+
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(nullable = false, name = "user_id", referencedColumnName = "id")
+    private User user;
 }

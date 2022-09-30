@@ -5,20 +5,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class FileEntity {
+public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(nullable = false)
-    private String filePath;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fileEntity")
-    private Set<Blog> blogs;
+    private String name;
 }

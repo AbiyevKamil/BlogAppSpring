@@ -11,7 +11,6 @@ import java.sql.Timestamp;
 import java.util.Set;
 
 @Entity
-@Table(name = "blogs")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
@@ -30,6 +29,10 @@ public class Blog {
     private Timestamp updatedAt;
 
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @JoinColumn(nullable = false, name = "user_id", referencedColumnName = "id")
+    private User user;
+
+    @ManyToOne(cascade = CascadeType.ALL, optional = false)
     @JoinColumn(nullable = false, name = "fileEntity_id", referencedColumnName = "id")
     private FileEntity fileEntity;
 
@@ -40,9 +43,4 @@ public class Blog {
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "blog")
     private Set<Comment> comments;
 
-    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinTable(name = "tag_blog",
-            joinColumns = {@JoinColumn(name = "blog_id", referencedColumnName = "id")},
-            inverseJoinColumns = {@JoinColumn(name = "tag_id", referencedColumnName = "id")})
-    private Set<Tag> tags;
 }

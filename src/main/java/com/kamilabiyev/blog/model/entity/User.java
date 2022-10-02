@@ -44,6 +44,10 @@ public class User implements UserDetails {
     )
     private Set<Role> roles;
 
+    public void addRole(Role role) {
+        roles.add(role);
+    }
+
     @CreationTimestamp
     private Timestamp createdAt;
 

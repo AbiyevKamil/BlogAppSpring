@@ -3,6 +3,8 @@ server:
 
 
 spring:
+  jackson:
+    time-zone: Asia/Baku
   datasource:
     name: blog_app
     url: jdbc:mysql://localhost:3306/blog_app
@@ -16,3 +18,9 @@ spring:
   properties:
     hibernate:
       format_sql: true
+
+
+jwt:
+  config:
+    secret-key: 3m59OX5h1ZTJsXmQF36qp7URWdFXV7Pz1WOjOmo9McCLWkxLdUVpiSAN8NlbbRXBDCTBqelhXrTWnz1W1WP0aiaPik7z5oGwYLMB1th5aFQoid2Qh7sadgmErUJstUqe
+    expiration-time: 1

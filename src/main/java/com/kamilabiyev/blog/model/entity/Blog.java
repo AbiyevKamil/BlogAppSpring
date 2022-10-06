@@ -20,9 +20,9 @@ public class Blog {
     private Long id;
 
     @Column(nullable = false)
-    private String Title;
+    private String title;
     @Column(nullable = false)
-    private String Content;
+    private String content;
     @CreationTimestamp
     private Timestamp createdAt;
     @UpdateTimestamp
@@ -32,11 +32,11 @@ public class Blog {
     @JoinColumn(nullable = false, name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
     @JoinColumn(nullable = false, name = "fileEntity_id", referencedColumnName = "id")
     private FileEntity fileEntity;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
     @JoinColumn(nullable = false, name = "category_id", referencedColumnName = "id")
     private Category category;
 

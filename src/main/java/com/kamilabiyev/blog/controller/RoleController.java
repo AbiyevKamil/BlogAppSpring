@@ -19,7 +19,7 @@ public class RoleController {
     private final RoleService roleService;
 
     @PostMapping("")
-    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_MODERATOR')")
+    @PreAuthorize("hasRole('ADMIN') or hasRole('MODERATOR')")
     public ResponseEntity add(
             @RequestBody AddRoleRequest request) {
         roleService.add(request);

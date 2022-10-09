@@ -1,12 +1,14 @@
 package com.kamilabiyev.blog.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.sql.Timestamp;
 import java.util.List;
 
 @Data
+@AllArgsConstructor
 public class BlogDTO {
     private Long id;
     private String title;

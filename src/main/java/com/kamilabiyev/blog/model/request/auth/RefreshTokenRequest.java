@@ -1,4 +1,4 @@
-package com.kamilabiyev.blog.model.request;
+package com.kamilabiyev.blog.model.request.auth;
 
 import lombok.Data;
 

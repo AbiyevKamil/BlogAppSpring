@@ -1,8 +1,8 @@
 package com.kamilabiyev.blog.service;
 
 import com.kamilabiyev.blog.model.dto.BlogDTO;
-import com.kamilabiyev.blog.model.request.AddBlogRequest;
-import com.kamilabiyev.blog.model.request.UpdateBlogRequest;
+import com.kamilabiyev.blog.model.request.blog.AddBlogRequest;
+import com.kamilabiyev.blog.model.request.blog.UpdateBlogRequest;
 
 import java.util.List;
 

@@ -1,8 +1,8 @@
 package com.kamilabiyev.blog.controller;
 
 import com.kamilabiyev.blog.model.dto.BlogDTO;
-import com.kamilabiyev.blog.model.request.AddBlogRequest;
-import com.kamilabiyev.blog.model.request.UpdateBlogRequest;
+import com.kamilabiyev.blog.model.request.blog.AddBlogRequest;
+import com.kamilabiyev.blog.model.request.blog.UpdateBlogRequest;
 import com.kamilabiyev.blog.service.BlogService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirements;
 import lombok.AccessLevel;
@@ -36,13 +36,13 @@ public class BlogController {
 
     @PostMapping("")
     public ResponseEntity<Long> add(
-            @Valid @RequestBody(required = false) AddBlogRequest request) {
+            @Valid @RequestBody AddBlogRequest request) {
         return new ResponseEntity<>(blogService.add(request), HttpStatus.OK);
     }
 
     @PutMapping("{id}")
     public ResponseEntity<Long> update(
-            @Valid @RequestBody(required = false) UpdateBlogRequest request,
+            @Valid @RequestBody UpdateBlogRequest request,
             @PathVariable Long id) {
         return new ResponseEntity<>(blogService.update(id, request), HttpStatus.OK);
     }

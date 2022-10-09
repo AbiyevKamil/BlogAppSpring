@@ -1,9 +1,9 @@
 package com.kamilabiyev.blog.controller;
 
 
-import com.kamilabiyev.blog.model.request.LoginRequest;
-import com.kamilabiyev.blog.model.request.RefreshTokenRequest;
-import com.kamilabiyev.blog.model.request.RegisterRequest;
+import com.kamilabiyev.blog.model.request.auth.LoginRequest;
+import com.kamilabiyev.blog.model.request.auth.RefreshTokenRequest;
+import com.kamilabiyev.blog.model.request.auth.RegisterRequest;
 import com.kamilabiyev.blog.model.response.AuthResponse;
 import com.kamilabiyev.blog.service.UserService;
 import io.swagger.v3.oas.annotations.security.SecurityRequirements;

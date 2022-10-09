@@ -1,11 +1,13 @@
 package com.kamilabiyev.blog.model.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import java.sql.Timestamp;
 
 @Data
+@AllArgsConstructor
 public class CommentDTO {
     private Long id;
     private String Content;

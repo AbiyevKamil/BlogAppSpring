@@ -32,4 +32,8 @@ jwt:
     expiration-time: 1
 file-upload:
   settings:
-    upload-folder: d:/blogappfiles/uploads
+    upload-folder: d:/blogappfiles/uploads/
+logging:
+  file:
+    name: logFile.txt
+    path: d:/blogappfiles/logs/

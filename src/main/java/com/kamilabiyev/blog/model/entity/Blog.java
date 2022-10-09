@@ -32,7 +32,7 @@ public class Blog {
     @JoinColumn(nullable = false, name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
     @JoinColumn(nullable = false, name = "fileEntity_id", referencedColumnName = "id")
     private FileEntity fileEntity;
 
@@ -42,5 +42,10 @@ public class Blog {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "blog")
     private Set<Comment> comments;
+
+    public Blog(String title, String content) {
+        this.title = title;
+        this.content = content;
+    }
 
 }

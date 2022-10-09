@@ -24,4 +24,8 @@ public class Category {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "category")
     private Set<Blog> blogs;
+
+    public Category(String name) {
+        this.name = name;
+    }
 }

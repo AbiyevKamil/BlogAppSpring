@@ -2,7 +2,7 @@ package com.kamilabiyev.blog.service.impl;
 
 import com.kamilabiyev.blog.exception.CustomException;
 import com.kamilabiyev.blog.model.entity.Role;
-import com.kamilabiyev.blog.model.request.AddRoleRequest;
+import com.kamilabiyev.blog.model.request.role.AddRoleRequest;
 import com.kamilabiyev.blog.repository.RoleRepository;
 import com.kamilabiyev.blog.service.RoleService;
 import lombok.RequiredArgsConstructor;

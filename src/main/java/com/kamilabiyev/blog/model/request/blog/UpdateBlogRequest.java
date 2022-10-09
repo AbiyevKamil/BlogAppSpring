@@ -1,4 +1,4 @@
-package com.kamilabiyev.blog.model.request;
+package com.kamilabiyev.blog.model.request.blog;
 
 import lombok.Data;
 import org.springframework.web.multipart.MultipartFile;

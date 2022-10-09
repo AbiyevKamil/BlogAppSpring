@@ -18,7 +18,4 @@ public class FileEntity {
 
     @Column(nullable = false)
     private String filePath;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "fileEntity")
-    private Set<Blog> blogs;
 }

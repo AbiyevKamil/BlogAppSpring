@@ -2,10 +2,11 @@ package com.kamilabiyev.blog.service.impl;
 
 import com.kamilabiyev.blog.exception.CustomException;
 import com.kamilabiyev.blog.model.entity.User;
-import com.kamilabiyev.blog.model.request.LoginRequest;
-import com.kamilabiyev.blog.model.request.RefreshTokenRequest;
-import com.kamilabiyev.blog.model.request.RegisterRequest;
+import com.kamilabiyev.blog.model.request.auth.LoginRequest;
+import com.kamilabiyev.blog.model.request.auth.RefreshTokenRequest;
+import com.kamilabiyev.blog.model.request.auth.RegisterRequest;
 import com.kamilabiyev.blog.model.response.AuthResponse;
+import com.kamilabiyev.blog.properties.constants.RoleDefaults;
 import com.kamilabiyev.blog.repository.UserRepository;
 import com.kamilabiyev.blog.security.JWTTokenUtil;
 import com.kamilabiyev.blog.service.RoleService;
@@ -58,7 +59,7 @@ public class UserServiceImpl implements UserService {
         user.setEmail(request.getEmail());
         user.setUsername(request.getUsername());
         user.setPassword(passwordEncoder.encode(request.getPassword()));
-        user.addRole(roleService.getByName("ROLE_BASIC_USER"));
+        user.addRole(roleService.getByName(RoleDefaults.BASIC_USER.toString()));
         userRepository.save(user);
         var accessToken = tokenUtil.generateAccessToken(user);
         var refreshToken = tokenUtil.generateRefreshToken(user);

@@ -1,7 +1,7 @@
 package com.kamilabiyev.blog.controller;
 
 
-import com.kamilabiyev.blog.model.request.AddRoleRequest;
+import com.kamilabiyev.blog.model.request.role.AddRoleRequest;
 import com.kamilabiyev.blog.service.RoleService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;

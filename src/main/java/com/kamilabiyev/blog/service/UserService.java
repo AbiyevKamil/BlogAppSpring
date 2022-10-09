@@ -1,8 +1,8 @@
 package com.kamilabiyev.blog.service;
 
-import com.kamilabiyev.blog.model.request.LoginRequest;
-import com.kamilabiyev.blog.model.request.RefreshTokenRequest;
-import com.kamilabiyev.blog.model.request.RegisterRequest;
+import com.kamilabiyev.blog.model.request.auth.LoginRequest;
+import com.kamilabiyev.blog.model.request.auth.RefreshTokenRequest;
+import com.kamilabiyev.blog.model.request.auth.RegisterRequest;
 import com.kamilabiyev.blog.model.response.AuthResponse;
 
 public interface UserService {

@@ -28,19 +28,21 @@ public class Blog {
     @UpdateTimestamp
     private Timestamp updatedAt;
 
-    @ManyToOne(cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(cascade = CascadeType.DETACH, optional = false)
     @JoinColumn(nullable = false, name = "user_id", referencedColumnName = "id")
     private User user;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
+    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE,
+            orphanRemoval = true, optional = false)
     @JoinColumn(nullable = false, name = "fileEntity_id", referencedColumnName = "id")
     private FileEntity fileEntity;
 
-    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.DETACH, optional = false)
     @JoinColumn(nullable = false, name = "category_id", referencedColumnName = "id")
     private Category category;
 
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "blog")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "blog",
+            cascade = CascadeType.REMOVE, orphanRemoval = true)
     private Set<Comment> comments;
 
     public Blog(String title, String content) {

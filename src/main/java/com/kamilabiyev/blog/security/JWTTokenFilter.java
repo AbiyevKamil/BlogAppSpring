@@ -8,7 +8,6 @@ import io.jsonwebtoken.UnsupportedJwtException;
 import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.annotations.Filter;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -22,7 +21,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.security.SignatureException;
 import java.util.Objects;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
@@ -46,6 +44,8 @@ public class JWTTokenFilter extends OncePerRequestFilter {
             if (Objects.nonNull(auth) && auth.startsWith(TOKEN_PREFIX)) {
                 final var token = auth.substring(7);
                 log.info("Token: {}", token);
+                if (jwtTokenUtil.isTokenExpired(token))
+                    throw new CustomException("Token is expired.", HttpStatus.UNAUTHORIZED);
                 final var username = jwtTokenUtil.getUsernameFromToken(token);
                 SecurityContextHolder.getContext().setAuthentication(getAuthentication(username));
             }
@@ -53,7 +53,7 @@ public class JWTTokenFilter extends OncePerRequestFilter {
         } catch (ExpiredJwtException | UnsupportedJwtException |
                 MalformedJwtException |
                 IncorrectClaimException | IllegalArgumentException ex) {
-            throw new CustomException(ex.getMessage(), HttpStatus.FORBIDDEN);
+            throw new CustomException(ex.getMessage(), HttpStatus.UNAUTHORIZED);
         }
     }
 

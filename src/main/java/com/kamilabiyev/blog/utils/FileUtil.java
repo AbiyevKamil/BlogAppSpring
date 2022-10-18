@@ -42,4 +42,9 @@ public class FileUtil {
             throw new CustomException(ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    public void delete(String filePath) {
+        var file = new File(fileProperties.getUploadFolder() + filePath);
+        if (file.exists()) file.delete();
+    }
 }

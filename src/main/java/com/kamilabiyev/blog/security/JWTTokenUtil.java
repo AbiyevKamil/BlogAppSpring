@@ -1,5 +1,6 @@
 package com.kamilabiyev.blog.security;
 
+import com.kamilabiyev.blog.model.entity.Role;
 import com.kamilabiyev.blog.model.entity.User;
 import com.kamilabiyev.blog.properties.JWTTokenProperties;
 import io.jsonwebtoken.Claims;
@@ -48,6 +49,7 @@ public class JWTTokenUtil {
         return Jwts.builder()
                 .setSubject(user.getUsername())
                 .setId(user.getId().toString())
+                .claim("AUTHORITIES", user.getRoles().stream().map(Role::getName))
                 .setIssuedAt(createdDate)
                 .setExpiration(expirationDate)
                 .signWith(SignatureAlgorithm.HS512, tokenProperties.getSecretKey())
